@@ -3,11 +3,11 @@
 
 ### Links para testar expressões regulares:
 
-1. **rubular.com/**
+1. <a href="https://rubular.com/">**rubular.com**</a>
 
-2. **regex101.com/**
+2. <a href="https://regexr.com/">**regexr.com**</a>
 
-3. **regexr.com**
+3. <a href="https://regex101.com/">**regex101.com/**</a>
 
 # Resumão
 
