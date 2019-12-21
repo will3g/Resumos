@@ -2,24 +2,22 @@
 
 Neste resumo se encontra alguns dos comandos mais usados e uma explicação básica deles.
 
--------------------------------
-
-Para entrar no **MySQL**: 
+# Para entrar no **MySQL**: 
 - > mysql -u root -p 
 
-Exibindo os **databases** existentes: 
+# Exibindo os **databases** existentes: 
 - > show databases;
 
-Escolhendo um **database** para ser utilizado:
+# Escolhendo um **database** para ser utilizado:
 - > use {nome-do-banco};
 
-Exibindo as tabelas existentes:
+# Exibindo as tabelas existentes:
 - > show tables;
 
-Criando um banco de dados:
+# Criando um banco de dados:
 - > create database {nome-do-banco};
 
-Criando uma tabela para o seu banco de dados existente:
+# Criando uma tabela para o seu banco de dados existente:
 - > create table {nome-tabela} ({atributos});
 
 **Exemplo**:  
@@ -39,7 +37,7 @@ Criando uma tabela para o seu banco de dados existente:
 
 ```
 
-Inserindo valores na tabela:
+# Inserindo valores na tabela:
 - > insert into {nome-tabela} values ({passando os valores})
 
 Lembrando que as tabelas existentes são: ```valor(double), data(date), descricao(varchar(255)), recebido(boolean)```
@@ -54,7 +52,7 @@ insert into COMPRAS values (100.0, 2019-05-12, 'compras de dezembro', 1);
 insert into COMPRAS (valor, data, descricao, recebido) values (100.0, '2019-05-12', 'compras de dezembro', 1);
 ```
 
-## **Consultas**
+# **Consultas**
 
 As consultas em banco de dados SQL tem um comando inicial chamado **select**:
 
@@ -69,7 +67,7 @@ As consultas em banco de dados SQL tem um comando inicial chamado **select**:
     select * from compras;
 ```
 
-Selecionando colunas:
+# Selecionando colunas:
 
 - > select {nome-coluna-a, nome-coluna-b, nome-coluna-c} from {nome-tabela};
 
@@ -83,7 +81,7 @@ Selecionando colunas:
     select valor, data from compras;
 ```
 
-Fazendo operações aritméticas:
+# Fazendo operações aritméticas:
 
 - > select {coluna-a ```operação``` {valor desejado}} from {nome-tabela};
 
@@ -95,7 +93,7 @@ Fazendo operações aritméticas:
     select valor, valor * 3, data from compras;
 ```
 
-Filtros de busca e condições:
+# Filtros de busca e condições:
 
 **OBS:** É possível utilizar **```>=```** ```(maior ou igual)```, **```<=```** ```(menor ou igual)``` e **```<>```** ```(diferente)```
 
@@ -120,7 +118,7 @@ Filtros de busca e condições:
     select * from compras where (valor > 1000 and valor < 3000) or (data < '2019-02-12');
 ```
 
-Selecionando dados e "**renomeando**" na query e utilizando **GroupBy**:
+# Selecionando dados e "**renomeando**" na query e utilizando **GroupBy**:
 
 ```Essa query no final vai juntar as informações dessas três colunas```
 - > select {coluna-a} as {col-a}, {coluna-b} as {col-b}, {coluna-c} as {col-c} from {nome-tabela} col-a, col-b, col-c;
@@ -130,7 +128,7 @@ Selecionando dados e "**renomeando**" na query e utilizando **GroupBy**:
     select descricao as desc, month(data) as mes, year(data) as ano, sum(valor) as preço, count(valor) as qtd, round(avg(valor)) from compras group by mes, ano order by ano, mes;
 ```
 
-Usando comando **like**:
+# Usando comando **like**:
 
 **OBS**: O caractere **```%```** funciona como um coringa, não importa o que houver para frente (ou para trás), vai buscar no sistema todos os celulares existentes.
 
@@ -151,7 +149,7 @@ Usando comando **like**:
                                     -> Na coluna descricoes
 ```
 
-Usando tipo **boolean** em consultas:
+# Usando tipo **boolean** em consultas:
 
 - > select {parametro} from {tabela} where {condição};
 
@@ -166,7 +164,7 @@ Usando tipo **boolean** em consultas:
     select * from compras where recebido is true;
 ```
 
-Importando arquivo SQL por linha de comando:
+# Importando arquivo SQL por linha de comando:
 
 - > mysql -u root -p {nome-banco} < {nome-arquivo}.sql
 
@@ -185,7 +183,7 @@ As consultas podem ser efetuadas com o comando **between**:
     select * from compras where (data between '2018-02-25' and '2019-12-21');
 ```
 
-Atualizando tabelas:
+# Atualizando tabelas:
 
 > upadte {nome-tabela} set {onde-você-quer-alterar};
 
